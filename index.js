@@ -1,15 +1,15 @@
-function addBroadcastMethod(events, w, event_name) {
+function addBroadcastMethod(events, w, localStorage_key) {
   w = w || window;
-  event_name = event_name || '__or_event';
+  localStorage_key = localStorage_key || '__or_event';
 
   events.broadcast = function broadcast() {
     var args = Array.prototype.slice.call(arguments, 0);
     var json = JSON.stringify(args);
-    w.localStorage.setItem(event_name, json);
+    w.sessionStorage.setItem(localStorage_key, json);
   };
 
   w.addEventListener('storage', function (e) {
-    if (e.key === event_name) {
+    if (e.key === localStorage_key) {
       events.trigger.apply(null, JSON.parse(e.newValue));
     }
   });
