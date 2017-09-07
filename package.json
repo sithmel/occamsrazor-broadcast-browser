@@ -1,6 +1,6 @@
 {
   "name": "occamsrazor-broadcast-browser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "it adds broadcast capability when using occamsrazor as event bus in the browser",
   "main": "index.js",
   "scripts": {
