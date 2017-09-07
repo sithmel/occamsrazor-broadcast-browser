@@ -6,7 +6,7 @@ var or = require('occamsrazor');
 var windowObject = {};
 var LocalStorage = require('node-localstorage').LocalStorage;
 var localStorage = new LocalStorage('./scratch');
-windowObject.sessionStorage = localStorage;
+windowObject.localStorage = localStorage;
 windowObject.addEventListener = localStorage.on.bind(localStorage);
 
 describe('adapter', function () {

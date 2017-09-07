@@ -5,7 +5,7 @@ function addBroadcastMethod(events, w, localStorage_key) {
   events.broadcast = function broadcast() {
     var args = Array.prototype.slice.call(arguments, 0);
     var json = JSON.stringify(args);
-    w.sessionStorage.setItem(localStorage_key, json);
+    w.localStorage.setItem(localStorage_key, json);
   };
 
   w.addEventListener('storage', function (e) {
