@@ -4,13 +4,18 @@ function addBroadcastMethod(events, w, localStorage_key) {
 
   events.broadcast = function broadcast() {
     var args = Array.prototype.slice.call(arguments, 0);
-    var json = JSON.stringify(args);
+    // adding a timestamp to ensure every message is different
+    var obj = { args: args, ts: Date.now() };
+    var json = JSON.stringify(obj);
     w.localStorage.setItem(localStorage_key, json);
   };
 
   w.addEventListener('storage', function (e) {
+    var obj, args;
     if (e.key === localStorage_key) {
-      events.trigger.apply(null, JSON.parse(e.newValue));
+      obj = JSON.parse(e.newValue);
+      args = obj.args;
+      events.trigger.apply(null, args);
     }
   });
 
