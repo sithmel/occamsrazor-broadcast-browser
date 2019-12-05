@@ -4,12 +4,9 @@
   "description": "it adds broadcast capability when using occamsrazor as event bus in the browser",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/*.js",
+    "test": "mocha",
     "watch": "npm run test -- -w",
-    "lint": "./node_modules/.bin/eslint --ext .js ./src ./tests",
-    "release:major": "./node_modules/.bin/npm-release major",
-    "release:minor": "./node_modules/.bin/npm-release minor",
-    "release:patch": "./node_modules/.bin/npm-release patch",
+    "lint": "eslint --fix .",
     "precommit": "npm run lint",
     "prepush": "npm run test"
   },
@@ -24,15 +21,19 @@
   "author": "Maurizio Lupo <maurizio.lupo@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^1.10.0",
-    "eslint": "^1.10.3",
-    "husky": "^0.10.2",
-    "mocha": "^2.1.0",
-    "node-localstorage": "^1.3.0",
-    "npm-release": "^1.0.0",
-    "occamsrazor": "^7.0.0"
+    "chai": "^4.2.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "mocha": "^6.2.2",
+    "node-localstorage": "^2.1.5",
+    "occamsrazor": "^9.1.9"
   },
   "peerDependencies": {
-    "occamsrazor": "^7.0.0"
+    "occamsrazor": "^9.1.9"
   }
 }
